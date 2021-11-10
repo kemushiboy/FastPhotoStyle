@@ -3,7 +3,7 @@ Copyright (C) 2018 NVIDIA Corporation.  All rights reserved.
 Licensed under the CC BY-NC-SA 4.0 license (https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 """
 src = '''
-	#include "/usr/local/cuda/include/math_functions.h"
+	#include "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v9.1\\include\\math_functions.h"
 	#define TB 256
 	#define EPS 1e-7
 
@@ -333,7 +333,7 @@ def smooth_local_affine(output_cpu, input_cpu, epsilon, patch, h, w, f_r, f_e):
     # program = Program(src.encode('utf-8'), 'best_local_affine_kernel.cu'.encode('utf-8'))
     # ptx = program.compile(['-I/usr/local/cuda/include'.encode('utf-8')])
     program = Program(src, 'best_local_affine_kernel.cu')
-    ptx = program.compile(['-I/usr/local/cuda/include'])
+    ptx = program.compile(['-IC:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v9.1'])
     m = function.Module()
     m.load(bytes(ptx.encode()))
 
